@@ -6,13 +6,6 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
- * IMPORTANT: Add your package below. Package name can be found in the project's AndroidManifest.xml file.
- * This is the package name our example uses:
- * <p>
- * package com.example.android.justjava;
- */
-
-/**
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 0;
 
     //the method is executed when the app loads its screen for the first time
+    //it also overrides the existing method from the AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
