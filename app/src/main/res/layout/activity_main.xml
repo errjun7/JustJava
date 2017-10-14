@@ -5,16 +5,44 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/text_view_quantity_label"
+        android:id="@+id/text_view_toppings_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
         android:paddingLeft="12dp"
         android:paddingTop="12dp"
+        android:text="Toppings"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <CheckBox
+        android:id="@+id/checkbox_whipped_cream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button_order"
+        android:layout_alignStart="@+id/button_order"
+        android:layout_below="@+id/text_view_toppings_label"
+        android:paddingLeft="24dp"
+        android:text="Whipped Cream"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/text_view_quantity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkbox_whipped_cream"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="12dp"
         android:text="Quantity"
         android:textAllCaps="true"
-        android:textColor="#9E9E9E"
-        android:textSize="16sp" />
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 
     <LinearLayout
@@ -67,8 +95,9 @@
         android:paddingLeft="12dp"
         android:text="Order Summary"
         android:textAllCaps="true"
-        android:textColor="#9E9E9E"
-        android:textSize="16sp" />
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text_view_order_summary_value"
