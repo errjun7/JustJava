@@ -17,17 +17,13 @@
 
 
         <TextView
-
             android:id="@+id/text_view_toppings_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderTextStyle"
             android:paddingBottom="16dp"
             android:paddingLeft="12dp"
             android:paddingTop="12dp"
             android:text="@string/toppings"
-            android:textAllCaps="true"
             android:textColor="#000000"
-            android:textSize="16sp"
             android:textStyle="bold" />
 
 
@@ -58,8 +54,7 @@
 
         <TextView
             android:id="@+id/text_view_quantity_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderTextStyle"
             android:layout_below="@id/checkbox_whipped_cream"
             android:layout_centerHorizontal="true"
 
@@ -69,9 +64,9 @@
             android:paddingLeft="12dp"
             android:paddingTop="12dp"
             android:text="@string/quantity"
-            android:textAllCaps="true"
+
             android:textColor="#000000"
-            android:textSize="16sp"
+
             android:textStyle="bold" />
 
 
