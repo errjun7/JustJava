@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+
         android:id="@+id/text_view_toppings_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,6 +36,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/checkbox_whipped_cream"
         android:layout_marginTop="8dp"
+
+        android:layout_marginTop="100dp"
+        android:id="@+id/text_view_quantity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+
         android:paddingBottom="16dp"
         android:paddingLeft="12dp"
         android:paddingTop="12dp"
@@ -50,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_view_quantity_label"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
         <Button
@@ -91,6 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/horizontal_layout"
+        android:layout_centerHorizontal="true"
         android:paddingBottom="16dp"
         android:paddingLeft="12dp"
         android:text="Order Summary"
@@ -104,6 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_view_order_summary_label"
+        android:layout_centerHorizontal="true"
         android:paddingBottom="16dp"
         android:paddingLeft="12dp"
         android:text="$0"
@@ -113,9 +124,13 @@
     <Button
         android:id="@+id/button_order"
         android:layout_width="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_below="@id/text_view_order_summary_value"
-        android:layout_marginLeft="12dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal|center_vertical"
         android:onClick="submitOrder"
         android:text="Order"
         android:textSize="16sp" />
