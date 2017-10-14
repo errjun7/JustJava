@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     //the price of whipped cream decided by the company
+    //it can change in future
     final int WHIPPEDCREAMPRICE = 3;
 
     //this initialises the quantity of coffees ordered as a global variable
