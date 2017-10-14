@@ -12,7 +12,7 @@
             android:id="@+id/edit_text_your_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your Name"
+            android:hint="@string/hint_for_name_input"
             android:inputType="textAutoCorrect|textCapWords" />
 
 
@@ -24,7 +24,7 @@
             android:paddingBottom="16dp"
             android:paddingLeft="12dp"
             android:paddingTop="12dp"
-            android:text="Toppings"
+            android:text="@string/toppings"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -40,7 +40,7 @@
             android:layout_below="@+id/text_view_toppings_label"
             android:layout_marginLeft="16dp"
             android:paddingLeft="24dp"
-            android:text="Whipped Cream"
+            android:text="@string/whipped_cream"
             android:textSize="16sp" />
 
         <CheckBox
@@ -52,7 +52,7 @@
             android:layout_below="@+id/text_view_toppings_label"
             android:layout_marginLeft="16dp"
             android:paddingLeft="24dp"
-            android:text="Chocolate"
+            android:text="@string/chocolate"
             android:textSize="16sp" />
 
 
@@ -68,7 +68,7 @@
             android:paddingBottom="16dp"
             android:paddingLeft="12dp"
             android:paddingTop="12dp"
-            android:text="Quantity"
+            android:text="@string/quantity"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -90,7 +90,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="12dp"
                 android:onClick="decrement"
-                android:text="-"
+                android:text="@string/minus"
                 android:textSize="16sp" />
 
             <TextView
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
                 android:paddingLeft="12dp"
-                android:text="2"
+                android:text="@string/initial_coffee_quantity"
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
@@ -111,46 +111,46 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="12dp"
                 android:onClick="increment"
-                android:text="+"
+                android:text="@string/plus"
                 android:textSize="16sp" />
 
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_view_order_summary_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/horizontal_layout"
-            android:layout_centerHorizontal="true"
-            android:paddingBottom="16dp"
-            android:paddingLeft="12dp"
-            android:text="Order Summary"
-            android:textAllCaps="true"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        <!-- <TextView
+             android:id="@+id/text_view_order_summary_label"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/horizontal_layout"
+             android:layout_centerHorizontal="true"
+             android:paddingBottom="16dp"
+             android:paddingLeft="12dp"
+             android:text="Order Summary"
+             android:textAllCaps="true"
+             android:textColor="#000000"
+             android:textSize="16sp"
+             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_view_order_summary_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_order_summary_label"
-            android:layout_centerHorizontal="true"
-            android:paddingBottom="16dp"
-            android:paddingLeft="12dp"
-            android:text="$0"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
+         <TextView
+             android:id="@+id/text_view_order_summary_value"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/text_view_order_summary_label"
+             android:layout_centerHorizontal="true"
+             android:paddingBottom="16dp"
+             android:paddingLeft="12dp"
+             android:text="$0"
+             android:textColor="#000000"
+             android:textSize="16sp" />
+ -->
         <Button
             android:id="@+id/button_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_below="@id/text_view_order_summary_value"
+            android:layout_marginLeft="8dp"
             android:onClick="submitOrder"
-            android:text="Order"
+            android:text="@string/order"
             android:textSize="16sp" />
 
     </LinearLayout>

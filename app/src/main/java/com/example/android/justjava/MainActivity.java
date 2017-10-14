@@ -1,7 +1,10 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -48,13 +51,27 @@ public class MainActivity extends AppCompatActivity {
         CheckBox c = (CheckBox) findViewById(R.id.checkbox_chocolate);
         chocolate = c.isChecked();
 
+
         //local variable price is created
         //calling the calculate price method to separate the logic of calculating.
         int price = calculatePrice();
         //the total price is calculated and kept ready to be sent to the display method
         //calling the buildOrderSummary method to separate the logic
         String priceMessage = buildOrderSummary(price);
-        displayMessage(priceMessage);
+       /* displayMessage(priceMessage);*/
+
+        //getting the name entered by the user
+        EditText et = (EditText) findViewById(R.id.edit_text_your_name);
+        String userName = et.getText().toString();
+
+        //making an intent to send a mail
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto", "abc@gmail.com", null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "JustJava order for " + userName);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, priceMessage);
+        if (emailIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
+        }
     }
 
     private String buildOrderSummary(int price) {
@@ -94,13 +111,13 @@ public class MainActivity extends AppCompatActivity {
         if (whippedCream) {
             whippedCreamPrice = WHIPPEDCREAMPRICE;
         }
-
         //in case the user has selected to go with the CHOCOLATE, the price will be updated accordingly
         if (chocolate) {
             chocolatePrice = CHOCOLATEPRICE;
         }
-
+        Log.v("calculatePrice(): 118", whippedCreamPrice + " " + chocolatePrice);
         int basicPrice = quantity * (coffeeBasePrice + whippedCreamPrice + chocolatePrice);
+        Log.v("calculatePrice(): 120", basicPrice + "");
         return basicPrice;
     }
 
@@ -143,10 +160,10 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String message) {
+    /*private void displayMessage(String message) {
         //the summary value element is feteched via id and
         //the text is updated with the calculated value and the updated coffees ordered.
         TextView priceTextView = (TextView) findViewById(R.id.text_view_order_summary_value);
         priceTextView.setText(message);
-    }
+    }*/
 }
