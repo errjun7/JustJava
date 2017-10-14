@@ -8,6 +8,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/edit_text_your_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Name"
+            android:inputType="textAutoCorrect|textCapWords" />
+
+
         <TextView
 
             android:id="@+id/text_view_toppings_label"

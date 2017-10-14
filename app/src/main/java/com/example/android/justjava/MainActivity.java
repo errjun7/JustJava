@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -50,8 +51,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String buildOrderSummary(int price) {
-
-        String msg = "Hi Arjun" +
+        //we are summoning the editText view and asking it to give us the text entered into it
+        //since this ecitText can have various datatypes, we need to mention further what exact data type do we want
+        EditText et = (EditText) findViewById(R.id.edit_text_your_name);
+        String userName = et.getText().toString();
+        String msg = "Hi, " + userName +
                 "\nYou have ordered: " + quantity + " cups of delecious coffee" +
                 "\nwhich will cost you $" + price;
         if (whippedCream) {
