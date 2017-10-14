@@ -14,13 +14,15 @@ public class MainActivity extends AppCompatActivity {
 
     //the price of whipped cream decided by the company
     //it can change in future
-    final int WHIPPEDCREAMPRICE = 3;
+    final int WHIPPEDCREAMPRICE = 1;
+    final int CHOCOLATEPRICE = 2;
 
     //this initialises the quantity of coffees ordered as a global variable
     //so when the user is entering the details of his order, these variables will keep getting updated,
     //and when the order button is called, these values will be used as a state in them.
     int quantity = 0;
     boolean whippedCream = false;
+    boolean chocolate = false;
 
     //the method is executed when the app loads its screen for the first time
     //it also overrides the existing method from the AppCompatActivity
@@ -40,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         //getting the checkbox data from the xml view via the object hierarchy
         CheckBox cb = (CheckBox) findViewById(R.id.checkbox_whipped_cream);
         whippedCream = cb.isChecked();
+
+        //getting the checkbox data from the xml view via the object hierarchy
+        CheckBox c = (CheckBox) findViewById(R.id.checkbox_chocolate);
+        chocolate = c.isChecked();
 
         //local variable price is created
         //calling the calculate price method to separate the logic of calculating.
@@ -64,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
             msg += "\nwithout whipped cream";
         }
 
+        if (chocolate) {
+            msg += "\nwith chocolate";
+        } else {
+            msg += "\nwithout chocolate";
+        }
+
         return msg;
     }
 
@@ -74,12 +86,20 @@ public class MainActivity extends AppCompatActivity {
         //default whipped cream price
         int whippedCreamPrice = 0;
 
+        //default chocolate price
+        int chocolatePrice = 0;
+
         //in case the user has selected to go with the whipped cream, the price will be updated accordingly
         if (whippedCream) {
             whippedCreamPrice = WHIPPEDCREAMPRICE;
         }
 
-        int basicPrice = quantity * (coffeeBasePrice + whippedCreamPrice);
+        //in case the user has selected to go with the CHOCOLATE, the price will be updated accordingly
+        if (chocolate) {
+            chocolatePrice = CHOCOLATEPRICE;
+        }
+
+        int basicPrice = quantity * (coffeeBasePrice + whippedCreamPrice + chocolatePrice);
         return basicPrice;
     }
 
