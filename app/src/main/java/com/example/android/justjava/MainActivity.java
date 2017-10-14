@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 /**
@@ -10,8 +11,14 @@ import android.widget.TextView;
  */
 public class MainActivity extends AppCompatActivity {
 
+    //the price of whipped cream decided by the company
+    final int WHIPPEDCREAMPRICE = 3;
+
     //this initialises the quantity of coffees ordered as a global variable
+    //so when the user is entering the details of his order, these variables will keep getting updated,
+    //and when the order button is called, these values will be used as a state in them.
     int quantity = 0;
+    boolean whippedCream = false;
 
     //the method is executed when the app loads its screen for the first time
     //it also overrides the existing method from the AppCompatActivity
@@ -28,11 +35,47 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        //getting the checkbox data from the xml view via the object hierarchy
+        CheckBox cb = (CheckBox) findViewById(R.id.checkbox_whipped_cream);
+        whippedCream = cb.isChecked();
+
         //local variable price is created
-        int price = quantity * 5;
+        //calling the calculate price method to separate the logic of calculating.
+        int price = calculatePrice();
         //the total price is calculated and kept ready to be sent to the display method
-        String priceMessage = "Total: $" + price;
+        //calling the buildOrderSummary method to separate the logic
+        String priceMessage = buildOrderSummary(price);
         displayMessage(priceMessage);
+    }
+
+    private String buildOrderSummary(int price) {
+
+        String msg = "Hi Arjun" +
+                "\nYou have ordered: " + quantity + " cups of delecious coffee" +
+                "\nwhich will cost you $" + price;
+        if (whippedCream) {
+            msg += "\nwith whipped cream";
+        } else {
+            msg += "\nwithout whipped cream";
+        }
+
+        return msg;
+    }
+
+    private int calculatePrice() {
+        //coffee's base price
+        int coffeeBasePrice = 5;
+
+        //default whipped cream price
+        int whippedCreamPrice = 0;
+
+        //in case the user has selected to go with the whipped cream, the price will be updated accordingly
+        if (whippedCream) {
+            whippedCreamPrice = WHIPPEDCREAMPRICE;
+        }
+
+        int basicPrice = quantity * (coffeeBasePrice + whippedCreamPrice);
+        return basicPrice;
     }
 
     //when the + button is clicked
@@ -62,6 +105,6 @@ public class MainActivity extends AppCompatActivity {
         //the summary value element is feteched via id and
         //the text is updated with the calculated value and the updated coffees ordered.
         TextView priceTextView = (TextView) findViewById(R.id.text_view_order_summary_value);
-        priceTextView.setText("You have ordered " + quantity + " cups of coffee!\n" + message + "\nThank You!");
+        priceTextView.setText(message);
     }
 }
