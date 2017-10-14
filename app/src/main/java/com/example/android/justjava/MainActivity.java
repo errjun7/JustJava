@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * This app displays an order form to order coffee.
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     //this initialises the quantity of coffees ordered as a global variable
     //so when the user is entering the details of his order, these variables will keep getting updated,
     //and when the order button is called, these values will be used as a state in them.
-    int quantity = 0;
+    int quantity = 2;
     boolean whippedCream = false;
     boolean chocolate = false;
 
@@ -105,7 +106,16 @@ public class MainActivity extends AppCompatActivity {
 
     //when the + button is clicked
     public void increment(View view) {
-        quantity++;
+
+        //if the quantity is 100, adding 1 to it will only take it to a large number, we DONT want that
+        //so put a check so that only lesser than 101 number is passed here
+        if (quantity < 100) {
+            quantity++;
+        } else {
+            Toast t = Toast.makeText(getApplicationContext(), "Maximum limit is one hundred cups of coffee", Toast.LENGTH_SHORT);
+            t.show();
+        }
+
         //the number showing the current quantity of coffees is displayed
         // and updated with the latest value upon clicking the button
         //also, here we get the element from the activity.main with the specified id,
@@ -116,7 +126,14 @@ public class MainActivity extends AppCompatActivity {
 
     //when the - button is clicked
     public void decrement(View view) {
-        quantity--;
+        //if the quantity is 1, subtracting 1 from it will only take it to a negative number, we DONT want that
+        //so put a check so that only greater than 0 number is passed here
+        if (quantity > 1) {
+            quantity--;
+        } else {
+            Toast t = Toast.makeText(getApplicationContext(), "Minimum limit is one cup of coffee", Toast.LENGTH_SHORT);
+            t.show();
+        }
         //the number showing the current quantity of coffees is displayed
         // and updated with the latest value upon clicking the button
         TextView quantityTextView = (TextView) findViewById(R.id.text_view_quantity_value);
